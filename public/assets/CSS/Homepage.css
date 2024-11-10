@@ -1,0 +1,37 @@
+.banner{
+    display: flex;
+    width: 100%;
+}
+.banner img{
+    width: 100%;
+     height: 100%;
+}
+a.crad{
+    text-decoration: none;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 285px;
+    height: 350px;
+    padding: 1px;
+    background-color: #f4f4f4;
+    transition: 0.3s;
+}
+a.crad:hover{
+    transform: scale(101%);
+    box-shadow: 0 0 20px #d3d3d3;
+}
+.product-img{
+    width: 100%;
+    height: 200px;
+    margin: 0 0 10px 0;
+}
+.product-img img{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+.p{
+margin: 10px;
+}

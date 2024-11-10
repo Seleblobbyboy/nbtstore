@@ -1,0 +1,92 @@
+.add {
+    display: flex;
+    background-color: #007bff;
+    padding: 10px;
+    border-radius: 5px;
+
+
+}
+a.add{
+    text-decoration: none;
+    color: white;
+    margin: 0 10px;
+}
+a.add:hover{
+    background-color: #0060c6;
+
+}
+.add-Categories {
+    display: flex;
+    background-color: #111111;
+    padding: 10px;
+    border-radius: 5px;
+
+
+}
+a.add-Categories{
+    text-decoration: none;
+    color: white;
+    margin: 0 10px;
+}
+a.add-Categories:hover{
+    background-color: #303030;
+
+}
+.table-product{
+    display: flex;
+    justify-content: center;
+
+}
+.table-product table{
+    display: flex;
+    width: 1200px;
+    border-collapse: collapse;
+    justify-content: center;
+}
+.table-product tr,th,td{
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #ccc ;
+    width: 100px;
+    background-color: #f4f4f4;
+
+}
+th.name-product{
+    width: 400px;
+}
+th.Category{
+    width: 200px;
+}
+.edit-btn{
+    display: flex;
+    background-color: #ffc404;
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+    width: 100px;
+    justify-content: center;
+    border-radius: 5px;
+    margin-right: 10px;
+
+}
+.delete-btn{
+    display: flex;
+    background-color: #ff0000;
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+    width: 100px;
+    justify-content: center;
+    border-radius: 5px;
+
+}
+.edit-btn{
+    display: flex;
+}
+
+.btn-ation{
+    display: flex;
+}
+.group{
+    display: flex;
+}

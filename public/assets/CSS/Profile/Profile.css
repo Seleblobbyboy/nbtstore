@@ -1,0 +1,41 @@
+.card-profile{
+    border: 1px solid #ccc;
+    width: 30%;
+    margin-right: 20px;
+}
+.card-details{
+    border: 1px solid #ccc;
+    width: 100%;
+    padding: 15px;
+}
+.name{
+    border-bottom: 1px solid #ccc;
+    padding: 15px;
+}
+
+.container{
+    display: flex;
+}
+
+.menu ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu a{
+    display: flex;
+    text-decoration: none;
+    color: black;
+    padding: 15px;
+
+}
+.menu a:hover{
+    background-color: #004aad;
+
+    color: white;
+}
+.name p{
+    margin: 10px 0;
+    font-size: 15px;
+}

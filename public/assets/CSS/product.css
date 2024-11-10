@@ -1,0 +1,252 @@
+.product {
+    display: flex;
+    padding: 20px;
+}
+
+.Product-description {
+    padding: 20px;
+
+}
+
+.product-photo-mini {
+    display: flex;
+    padding: 10px 0;
+    overflow-x: auto;
+    /* แสดงแถบเลื่อนแนวนอน */
+    overflow-y: hidden;
+    /* ซ่อนแถบเลื่อนแนวตั้ง */
+    scroll-behavior: smooth;
+    /* ให้เลื่อนแบบนุ่มนวล */
+    max-width: 500px;
+    /* กำหนดความกว้างสูงสุดเพื่อไม่ให้ยืดเกิน */
+}
+
+/* ควบคุมลักษณะของแถบเลื่อนแนวนอน */
+.product-photo-mini::-webkit-scrollbar {
+    height: 8px;
+    /* ความสูงของแถบเลื่อน */
+}
+
+.product-photo-mini:-webkit-scrollbar-track {
+    background: #f1f1f1;
+    /* พื้นหลังของแถบเลื่อน */
+
+}
+
+.product-photo-mini::-webkit-scrollbar-thumb {
+    background: #888;
+    /* สีของปุ่มเลื่อน */
+
+}
+
+.product-photo-mini::-webkit-scrollbar-thumb:hover {
+    background: #555;
+    /* สีของปุ่มเลื่อนเมื่อเอาเมาส์ไปชี้ */
+}
+
+.product-photo-mini .mini-img {
+    flex: 0 0 auto;
+    /* ทำให้รูปภาพไม่ยืดตามพื้นที่ */
+    width: 80px;
+    /* ความกว้างของรูปย่อย */
+    height: auto;
+    cursor: pointer;
+}
+
+.mini-img {
+    width: 70px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+.mini-img img {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #ccc;
+    object-fit: contain;
+}
+
+.product-photo {
+    width: 510px;
+}
+
+.photo {
+    display: flex;
+    width: 510px;
+    height: 500px;
+    overflow: hidden;
+}
+
+.photo img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border: 1px solid #ccc;
+}
+
+.product-content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 0 20px;
+}
+
+.head-content h1 {
+    width: 100%;
+    font-size: 25px;
+}
+
+.product-price p {
+    color: red;
+    font-size: 20px;
+    margin: 0;
+
+}
+
+.button-forever a {
+    color: #111111;
+}
+
+.button-Order a {
+    text-decoration: none;
+    color: #ffffff;
+    transition: color 0.3s;
+}
+
+.button-Order a i {
+    color: #ffffff;
+}
+
+.button-Order {
+    display: flex;
+    padding: 10px;
+    border-radius: 5px;
+    justify-content: center;
+    width: 40%;
+    transition: background-color 0.3s;
+    margin-right: 10px;
+    background-color: #111111;
+}
+
+.button-forever {
+    display: flex;
+    padding: 10px;
+    border: 2px solid #CCC;
+    border-radius: 5px;
+    justify-content: center;
+    width: 40%;
+    transition: background-color 0.3s;
+    margin-right: 10px;
+}
+
+.button-forever:hover {
+    border: 2px solid #111111;
+}
+
+.button-Order:hover {
+    background-color: #333;
+}
+
+
+.quantity {
+    padding: 25px 0;
+    display: flex;
+    align-items: center;
+}
+
+.quantity small {
+    font-weight: bold;
+}
+
+
+.quantity-selector {
+    display: flex;
+    align-items: center;
+    margin: 0 25px;
+}
+
+.quantity-selector button.minus-btn {
+    width: 40px;
+    height: 30px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px 0 0 5px;
+}
+
+.quantity-selector button.plass-btn {
+    width: 40px;
+    height: 30px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 0px 5px 5px 0px;
+}
+
+.quantity-selector input[type="number"] {
+    width: 50px;
+    height: 30px;
+    text-align: center;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield; /* ซ่อนลูกศรใน Firefox */
+}
+
+hr.hr {
+    margin-bottom: 25px;
+}
+
+.button {
+    display: flex;
+}
+
+.Category {
+    margin: 25px 0;
+}
+
+.img-show-phto {
+    display: flex;
+    justify-content: center;
+
+    width: 100%;
+    height: 400px;
+    margin: 10px 0;
+}
+
+.img-show-phto img {
+    object-fit: contain;
+    width: 100%;
+}
+
+.photo {
+    position: relative;
+    overflow: hidden;
+}
+
+.photo img {
+    width: 100%;
+    transition: transform 0.3s ease;
+}
+
+.photo:hover img {
+    transform: scale(2);
+    /* เพิ่มขนาดของภาพเมื่อเมาส์วาง */
+}
+
+.photo {
+    cursor: zoom-in;
+}
+
+.stock p{
+    margin-top: 15px;
+}

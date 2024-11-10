@@ -1,0 +1,305 @@
+.head-Condition{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin: 10px 0;
+}
+.select{
+    display: flex;
+    background-color: #333;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    color: white;
+    outline: 1px solid #333;
+    outline-offset: 2px;
+    font-size: 20px;
+    align-items: center;
+    justify-content: center;
+}
+.select-no{
+    display: flex;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    color: #ccc;
+    outline: 1px solid #ccc;
+    outline-offset: 2px;
+    font-size: 20px;
+    align-items: center;
+    justify-content: center;
+}
+.pass{
+    display: flex;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    color: white;
+    background-color:#60b414;
+    outline: 1px solid #60b414;
+    outline-offset: 2px;
+    font-size: 20px;
+    align-items: center;
+    justify-content: center;
+}
+.group{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.line{
+    background-color: #ccc;
+    width: 200px;
+    height: 2px;
+    margin: 0 10px;
+    transform: translateY(-20px);
+}
+
+a.active{
+    text-decoration: none;
+    margin: 10px 0;
+    color: #333;
+}
+a.active:hover{
+    text-decoration: underline;
+}
+
+.group-from{
+    display: flex;
+    justify-content: space-between;
+
+}
+.g2-group input{
+    display: flex;
+    width: 395px;
+}
+
+.card-left form{
+    display: flex;
+    flex-direction: column;
+}
+
+.g1-group{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.card-left input{
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    font-size: 14px;
+
+}
+
+.card-left textarea {
+    width: 100%;
+    height: 120px; /* กำหนดความสูงให้ตรงกับด้านล่าง */
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 14px;
+    box-sizing: border-box;
+    resize: none;
+}
+
+.card-left input:focus,
+.card-left select:focus,
+.card-left textarea:focus {
+    outline: none;
+    border-color: #80bdff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
+}
+
+
+.card-left label{
+    margin: 10px 0;
+}
+
+.button-submit{
+    display: flex;
+    justify-content: space-between;
+}
+.Need-invoice {
+    display: flex;
+    width: 50%;
+    align-items: center;
+
+}
+.Need-invoice input[type="checkbox"]{
+    margin: 0;
+    width: 30px;
+
+}
+.button-submit input{
+    display: flex;
+    background-color: #007bff;
+    color: white;
+    width: 24%;
+}
+
+.card-method{
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    padding: 5px;
+    margin: 10px 0;
+}
+
+.img{
+    display: flex;
+    width: 60px;
+}
+.card-name{
+    display: flex;
+    flex-direction: column;
+}
+.card-name small{
+    color: #989898;
+}
+
+.card-method2{
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    padding: 5px;
+    margin: 10px 0;
+}
+
+
+.g1{
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+.edit{
+    display: flex;
+    padding: 0 10px;
+}
+.edit a{
+    color: #333;
+     text-decoration: none;
+     margin: 0 10px;
+}
+.select-btn2{
+    display: flex;
+    padding: 10px;
+    border-radius: 5px;
+}
+a.select-btn2{
+    text-decoration: none;
+    color: #333;
+    font-size: 20px;
+}
+.select-card2{
+    padding: 10px;
+}
+
+.head-pay{
+    display: flex;
+    justify-content: center;
+    background-color: #1a3761;
+    height: 70px;
+}
+.head-pay img{
+    object-fit: cover;
+    width: 30%;
+}
+.prom-img{
+    padding: 10px;
+}
+.prom-img img{
+    object-fit: cover;
+    width: 20%;
+}
+p.p-h span{
+    color: red;
+}
+.p-h{
+    margin: 15px 0;
+}
+.prompay-card{
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid #ccc;
+    padding: 10px;
+    align-items: center;
+}
+
+
+
+.g1-group {
+    margin-bottom: 16px;
+    display: flex;
+    vertical-align: top;
+    width: 200px; /* Fixed width for consistency */
+    margin: 0 10px;
+}
+
+/* Style for labels */
+.g1-group label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 4px;
+    display: block;
+}
+
+/* Style for input fields and select dropdowns */
+.g1-group input[type="number"],
+.g1-group select {
+    padding: 8px 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #ffffff;
+    color: #333;
+    outline: none;
+    transition: border-color 0.3s ease;
+    width: 100%; /* Ensures full width in the container */
+    box-sizing: border-box;
+}
+
+/* Placeholder option style */
+.g1-group select option[value=""] {
+    color: #999;
+}
+
+/* Focus effect */
+.g1-group input[type="number"]:focus,
+.g1-group select:focus {
+    border-color: #666;
+}
+
+/* Hover effect for inputs and select fields */
+.g1-group input[type="number"]:hover,
+.g1-group select:hover {
+    border-color: #999;
+}
+
+/* Custom dropdown arrow for select elements */
+.g1-group select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath fill='%23333' d='M7 7l3 3 3-3z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 12px;
+    padding-right: 36px; /* Space for the custom arrow */
+}
+
+/* Disabled styling for fields, if needed */
+.g1-group input[type="number"]:disabled,
+.g1-group select:disabled {
+    background-color: #f5f5f5;
+    color: #999;
+    cursor: not-allowed;
+}
+
+

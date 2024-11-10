@@ -1,0 +1,42 @@
+.add-categories{
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+}
+.add-categories form{
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+    justify-content: center;
+}
+.add-categories input{
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 14px;
+    margin: 10px 0;
+}
+.add-categories input[type="submit"]{
+    display: flex;
+    margin-left: 10px;
+    background-color: #007bff;
+    color: white;
+}
+.add-categories input:focus{
+    outline: none;
+    border-color: #80bdff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
+}
+.top{
+    display: flex;
+}
+.menu-back ul{
+    display: flex;
+    list-style: none;
+}
+.menu-back li{
+    margin-right: 10px;
+}
+.menu-back a{
+    text-decoration: none;
+}

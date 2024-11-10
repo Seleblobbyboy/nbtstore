@@ -1,0 +1,119 @@
+.card-login{
+    border: 1px solid #ccc;
+    width: 450px;
+    margin: 0 auto;
+    padding: 20px;
+}
+.card-login h2{
+    text-align: center;
+}
+form.form{
+    display: flex;
+    flex-direction: column;
+}
+form.form input{
+    padding: 5px;
+    border-radius: 2px;
+    border: 0px;
+    outline: 2px solid #ccc;
+}
+form.form input:focus{
+    outline: 2px solid #004aad;
+    box-shadow: #004aad 0px 0px 5px;
+}
+form.form label{
+    margin: 10px 0;
+}
+.or{
+    display: flex;
+   justify-content: space-between;
+     align-items: center;
+}
+.right,
+.left{
+    width: 100%;
+    height: 1px;
+    background-color: #ccc;
+}
+.or span{
+    margin: 0 10px;
+}
+
+form.form input[type="submit"]{
+    margin: 25px 0;
+    background-color: #004aad;
+    outline: 0;
+    color: white;
+    padding: 10px;
+}
+form.form input[type="submit"]:hover{
+    background-color: #003b89;
+}
+.button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #F3F1F1;
+    outline: 1px solid #cccccc;
+    border-radius: 2px;
+    padding: 5px;
+    margin: 25px 0;
+    cursor: pointer;
+}
+.button:hover{
+    background-color: #eceaea;
+
+}
+.button img{
+    width: 30px;
+}
+.Forgot{
+    display: flex;
+    justify-content: end;
+}
+
+.password-field{
+    display: flex;
+    align-items: center;
+
+}
+.password-field input[type="password"]{
+    display: flex;
+    width: 100%;
+
+}
+.password-field img{
+    width: 20px;
+    position: absolute;
+
+}
+
+.register_or{
+    display: flex;
+    justify-content: center;
+}
+
+.register_or a{
+    margin-left: 5px;
+}
+
+.password-field {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.password-field input {
+    width: 100%;
+    padding-right: 30px; /* เผื่อพื้นที่สำหรับไอคอน */
+}
+
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+}

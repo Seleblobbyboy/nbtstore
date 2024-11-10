@@ -1,0 +1,85 @@
+.card-cart{
+    display: flex;
+
+}
+.card-left{
+    width: 90%;
+    border: 1px solid #ccc;
+    padding: 15px;
+
+}
+
+.card-width{
+    width: 100%;
+    border: 1px solid #ccc;
+    padding: 15px;
+
+}
+
+.card-rigth{
+    width: 40%;
+    margin-left: 20px;
+    border: 1px solid #ccc;
+    padding: 15px;
+
+
+}
+.table-crat table{
+    display: flex;
+    border-collapse: collapse;
+
+
+}
+.table-crat td,th{
+
+    padding: 20px 0;
+}
+
+th.name{
+    width: 50%;
+}
+.img{
+    display: flex;
+    width: 100px;
+    padding: 10px;
+}
+.img img{
+    object-fit: cover;
+    width: 100%;
+}
+a.ProductName{
+    text-decoration: none;
+    color: black;
+}
+a.ProductName:hover{
+    text-decoration: underline;
+
+}
+.totle{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+
+}
+.sum{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+
+}
+
+.Order{
+    display: flex;
+    background-color: #111111;
+    padding: 10px;
+    margin: 10px 0;
+    justify-content: center;
+
+}
+a.Order{
+    text-decoration: none;
+    color: white;
+}
+a.Order:hover{
+    background-color: #242424;
+}
