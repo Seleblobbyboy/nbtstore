@@ -30,8 +30,9 @@ class CartController extends Controller
         $cart = session()->get('cart', []);
         $userId = Session::get('Users');
         $CustomerAddress = CustomerAddress::where('CustomerID', $userId)->get();
+        // $Orders = Orders::where('CustomerID', $userId)->get();
         $Locations = Location::all();
-
+        #
         return view('product.cart_shopping', compact('cart', 'CustomerAddress', 'Locations'));
     }
     public function payment()
@@ -63,7 +64,16 @@ class CartController extends Controller
             return $detail->Products->Price * $detail->Quantity;
         });
 
-        return view('product.success', compact('cart', 'Orders', 'Customers', 'Invoice', 'OrderDetails', 'totalProductAmount'));
+        // คำนวณ VAT 7%
+        $vat = $totalProductAmount * 0.07;
+
+        // ยอดรวมรวม VAT
+        $totalWithVat = $totalProductAmount + $vat;
+
+
+        // dd($sum);
+
+        return view('product.success', compact('cart', 'Orders', 'Customers', 'Invoice', 'OrderDetails', 'totalProductAmount','totalWithVat','vat'));
     }
     public function addToCart(Request $request, $id)
     {
@@ -164,7 +174,14 @@ class CartController extends Controller
             return $product['Price'] * $product['quantity'];
         }, $cart));
         $shippingCost = 65;
-        $totalAmount = $productTotal + $shippingCost;
+        $vat = $productTotal * 0.07;
+        // ยอดรวมรวม VAT
+        $totalWithVat = $productTotal + $vat;
+
+        $totalAmount = $totalWithVat + $shippingCost;
+        // dd($totalAmount);
+
+
 
         session(['TotalAmount' => $totalAmount]);
         DB::beginTransaction();

@@ -7,11 +7,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Profile | </title>
     <link rel="stylesheet" href="{{ url('assets/CSS/Profile/Profile.css') }}">
+
 </head>
 
 <body>
     @extends('layouts.navigation')
     @section('content')
+
     <div class="container">
         <div class="card-profile">
             <div class="name">
@@ -22,7 +24,7 @@
                 <ul>
                     <li><a href="{{url('/profile')}}">ข้อมูลของฉัน</a></li>
                     <li><a href="{{url('/profile/order')}}">ประวัติการสั่งซื้อ</a></li>
-                    <li><a href="">ที่อยู่</a></li>
+                    <li><a href="{{url('/profile/adress')}}">ที่อยู่</a></li>
                     <li><a href="">คูปองส่วนลดของฉัน</a></li>
                 </ul>
             </div>

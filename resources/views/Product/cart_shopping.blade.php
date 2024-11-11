@@ -192,7 +192,7 @@
                                 </div>
                             </div>
                             <div class="card-name">
-                                <p><b>ไปรษณีย์ไทย</b> - EMS โอนเงิน ขนส่งด่วน ค่าจัดส่งเริ่มต้น 39 บาท</p>
+                                <p><b>ไปรษณีย์ไทย</b></p>
                                 <small>ระยะเวลาขนส่ง 1-2 วัน</small>
                             </div>
                             <div class="price">
@@ -252,7 +252,7 @@
                                         class="fas fa-check-square"></i></a>
                             @else
                                 <a href="{{ url('/cart/address', $item->AddressID) }}" class="select-btn2"><i
-                                        class="far fa-check-square"></i></a>
+                                        class="far fa-square"></i></a>
                             @endif
                         </div>
                         <div class="card-name2">
@@ -260,9 +260,15 @@
                             <small>{{ Str::limit($item->Address, 35, '...') }},{{ $item->PostalCode }},{{ $item->Province }},{{ $item->District }},{{ $item->Subdistrict }}</small>
                         </div>
                     </div>
+                    @if ($item->AddressID == optional($item->Orders)->AddressID)
+                    <div class="edit">
+                    </div>
+                    @else
                     <div class="edit">
                         <a href="{{ route('customer.destroy', $item->AddressID) }}"><i class="fas fa-trash-alt"></i></a>
                     </div>
+                    @endif
+
                 </div>
             @endforeach
         @endif

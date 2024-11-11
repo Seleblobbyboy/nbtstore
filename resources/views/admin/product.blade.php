@@ -19,36 +19,65 @@
             <div class="head-add">
                 <h1><i class="fas fa-shopping-basket"></i> All products</h1>
                 <div class="group">
-                    <a href="{{ url('/categories') }}" class="add-Categories" >
+                    <a href="{{ url('/categories') }}" class="add-Categories">
                         Add Categories
                     </a>
-                    <a href="{{ url('/admin/add_product') }}" class="add" >
+                    <a href="{{ url('/admin/add_product') }}" class="add">
                         Add New Product
                     </a>
                 </div>
             </div>
             <div class="table-product">
-                <table>
-                    <tr>
-                        <th>
-                            รหัสสินค้า
-                        </th>
-                        <th class="name-product">
-                            ชื่อสินค้า
-                        </th>
-                        <th>
-                            ราคา
-                        </th>
-                        <th>
-                            จำนวน
-                        </th>
-                        <th class="Category">
-                            หมดหมู่
-                        </th>
-                        <th>
-                            จัดการ
-                        </th>
-                    </tr>
+                <table class="table ">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>
+                                รหัสสินค้า
+                            </th>
+                            <th>
+                                ชื่อสินค้า
+                            </th>
+                            <th>
+                                ราคา
+                            </th>
+                            <th>
+                                จำนวน
+                            </th>
+                            <th>
+                                หมดหมู่
+                            </th>
+                            <th>
+                                จัดการ
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($Products as $product)
+                            <tr>
+                                <td>{{ $product->ProductID }}</td>
+                                <td>{{ $product->ProductName }}</td>
+                                <td>${{ $product->Price }}</td>
+                                <td>{{ $product->stock }}</td>
+                                <td>{{ $product->category ? $product->category->CategoryName : 'ไม่มีหมวดหมู่' }}</td>
+
+                                <td>
+                                    <div class="btn-ation">
+                                        <a href="{{ url('/edit_products', $product->ProductID) }}" class="edit-btn">
+                                            แก้ไข
+                                        </a>
+                                        <a href="{{ url('/delete_products', $product->ProductID) }}" class="delete-btn"
+                                            onclick="return false;">
+                                            ลบ
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+
+                {{-- <table>
+
                     @foreach ($Products as $product)
                         <tr>
                             <td>{{ $product->ProductID }}</td>
@@ -59,17 +88,18 @@
 
                             <td>
                                 <div class="btn-ation">
-                                    <a href="{{url('/edit_products',$product->ProductID)}}" class="edit-btn">
+                                    <a href="{{ url('/edit_products', $product->ProductID) }}" class="edit-btn">
                                         แก้ไข
                                     </a>
-                                    <a href="{{url('/delete_products',$product->ProductID)}}" class="delete-btn" onclick="return false;">
+                                    <a href="{{ url('/delete_products', $product->ProductID) }}" class="delete-btn"
+                                        onclick="return false;">
                                         ลบ
                                     </a>
                                 </div>
                             </td>
                         </tr>
                     @endforeach
-                </table>
+                </table> --}}
             </div>
         @endsection
     </div>
@@ -94,7 +124,6 @@
                 });
             });
         </script>
-
     @endif
     <script>
         document.addEventListener("DOMContentLoaded", function() {
@@ -118,7 +147,8 @@
                         cancelButtonText: "ยกเลิก" // Change "Cancel" text
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = url; // Redirect to the delete URL if confirmed
+                            window.location.href =
+                            url; // Redirect to the delete URL if confirmed
                         }
                     });
                 });

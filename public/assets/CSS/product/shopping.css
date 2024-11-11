@@ -190,6 +190,13 @@ a.active:hover{
     display: flex;
     padding: 10px;
     border-radius: 5px;
+    ;
+}
+i.fa-square{
+    color: red;
+}
+i.fa-check-square{
+    color: #007bff;
 }
 a.select-btn2{
     text-decoration: none;

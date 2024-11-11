@@ -22,6 +22,10 @@
                 <div class="head-add">
                     <h1><i class="fas fa-shopping-basket"></i> Edit New Product</h1>
                     <div class="add">
+                        <select name="showindex" id="" class="select">
+                            <option value="1">สินค้าแนะนำ</option>
+                            <option value="2">สินค้าทั้งหมด</option>
+                        </select>
                         <input type="submit" value="Update Product" id="submit-button">
                     </div>
                 </div>

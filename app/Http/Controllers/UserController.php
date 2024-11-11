@@ -9,6 +9,7 @@ use App\Models\CustomerAddress;
 use App\Models\Orders;
 use App\Models\OrderDetails;
 use App\Models\Invoices;
+use App\Models\Location;
 
 class UserController extends Controller
 {
@@ -69,6 +70,23 @@ class UserController extends Controller
             return $detail->Products->Price * $detail->Quantity;
         });
 
-        return view('Product.check_product', compact('cart', 'Orders', 'Customers', 'Invoice', 'OrderDetails', 'totalProductAmount'));
+        // คำนวณ VAT 7%
+        $vat = $totalProductAmount * 0.07;
+
+        // ยอดรวมรวม VAT
+        $totalWithVat = $totalProductAmount + $vat;
+
+
+        // dd($sum);
+
+        return view('product.check_product', compact('cart', 'Orders', 'Customers', 'Invoice', 'OrderDetails', 'totalProductAmount','totalWithVat','vat'));
+    }
+    function adress(){
+        $cart = session()->get('cart', []);
+        $userId = Session::get('Users');
+        $CustomerAddress = CustomerAddress::where('CustomerID', $userId)->get();
+        $Locations = Location::all();
+
+        return view('account.adress',compact('cart', 'CustomerAddress', 'Locations'));
     }
 }

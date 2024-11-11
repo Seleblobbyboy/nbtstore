@@ -7,6 +7,7 @@ use App\Http\Middleware\Admin;
 use App\Http\Middleware\User;
 use App\Http\Middleware\CheckAdress;
 use App\Http\Middleware\CheckOrderuser;
+use App\Http\Middleware\Checkconfirm;
 
 return Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
@@ -21,6 +22,7 @@ return Application::configure(basePath: dirname(__DIR__))
             'users' => User::class,
             'address' => CheckAdress::class,
             'checkorder' => CheckOrderuser::class,
+            'checkconfirm' => Checkconfirm::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {

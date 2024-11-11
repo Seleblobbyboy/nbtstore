@@ -51,6 +51,10 @@
                                     <span class="text-danger">ชำระเงินไม่สำเร็จ</span>
                                 @elseif ($order->confirm == 3)
                                     <span class="text-warning">แก้ไขการชำระเงินแล้ว</span>
+                                @elseif ($order->confirm == 6)
+                                    <span class="text-success">กำลังเตรียมจัดส่ง</span>
+                                @elseif ($order->confirm == 7)
+                                    <span class="text-success">จัดส่งสินค้าสำเร็จ</span>
                                 @elseif ($order->SlipImage == null)
                                     <span class="text-danger">ยังไม่ได้ชำระเงิน</span>
                                 @else

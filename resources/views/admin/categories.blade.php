@@ -43,39 +43,45 @@
                         </div>
                     </form>
                 </div>
-                <div class="table-product">
-                    <table>
-                        <tr>
-                            <th>
-                                รหัสหมวดหมู่
-                            </th>
-                            <th class="name-product">
-                                ชื่อหมวดหมู่
-                            </th>
-                            <th>
-                                จัดการ
-                            </th>
-                        </tr>
-                        @foreach ($categories as $category)
+                <div class="table-product2">
+
+                    <table class="table ">
+                        <thead class="table-dark">
                             <tr>
-                                <td>
-                                    {{ $category->CategoryID }}
-                                </td>
-                                <td>
-                                    {{ $category->CategoryName }}
-                                </td>
-                                <td>
-                                    <div class="btn-ation">
-                                        <a href="{{ url('/edit_categories', $category->CategoryID) }}" class="edit-btn">
-                                            แก้ไข
-                                        </a>
-                                        <a href="{{ url('/delete_categories',$category->CategoryID) }}" class="delete-btn" onclick="return false;">
-                                            ลบ
-                                        </a>
-                                    </div>
-                                </td>
+                                <th>
+                                    รหัสหมวดหมู่
+                                </th>
+                                <th>
+                                    ชื่อหมวดหมู่
+                                </th>
+                                <th>
+                                    จัดการ
+                                </th>
                             </tr>
-                        @endforeach
+                        </thead>
+                        <tbody>
+                            @foreach ($categories as $category)
+                                <tr>
+                                    <td>
+                                        {{ $category->CategoryID }}
+                                    </td>
+                                    <td>
+                                        {{ $category->CategoryName }}
+                                    </td>
+                                    <td>
+                                        <div class="btn-ation">
+                                            <a href="{{ url('/edit_categories', $category->CategoryID) }}" class="edit-btn">
+                                                แก้ไข
+                                            </a>
+                                            <a href="{{ url('/delete_categories', $category->CategoryID) }}"
+                                                class="delete-btn" onclick="return false;">
+                                                ลบ
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
                     </table>
                 </div>
             @else
@@ -93,11 +99,13 @@
                         <li>/</li>
                         <li><a href="{{ url('/categories') }}">Categoriess</a></li>
                         <li>/</li>
-                        <li><a href="{{ url('edit_categories', $add_categories->CategoryID) }}">{{$add_categories->CategoryName}}</a></li>
+                        <li><a
+                                href="{{ url('edit_categories', $add_categories->CategoryID) }}">{{ $add_categories->CategoryName }}</a>
+                        </li>
                     </ul>
                 </div>
                 <div class="add-categories">
-                    <form action="{{ url('/update_categories',$add_categories->CategoryID) }}" method="POST">
+                    <form action="{{ url('/update_categories', $add_categories->CategoryID) }}" method="POST">
                         @csrf
                         <label for="">แก้ไขหมวดมู่</label>
                         <div class="top">
@@ -107,39 +115,43 @@
                         </div>
                     </form>
                 </div>
-                <div class="table-product">
-                    <table>
-                        <tr>
-                            <th>
-                                รหัสหมวดหมู่
-                            </th>
-                            <th class="name-product">
-                                ชื่อหมวดหมู่
-                            </th>
-                            <th>
-                                จัดการ
-                            </th>
-                        </tr>
+                <div class="table-product2">
 
-                        <tr>
-                            <td>
-                                {{ $add_categories->CategoryID }}
-                            </td>
-                            <td>
-                                {{ $add_categories->CategoryName }}
-                            </td>
-                            <td>
-                                <div class="btn-ation">
-                                    <a href="{{ url('/delete_categories',$add_categories->CategoryID) }}" class="delete-btn" onclick="return false;">
-                                        ลบ
-                                    </a>
-                                </div>
-                            </td>
-                        </tr>
+                    <table class="table ">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>
+                                    รหัสหมวดหมู่
+                                </th>
+                                <th>
+                                    ชื่อหมวดหมู่
+                                </th>
+                                <th>
+                                    จัดการ
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    {{ $add_categories->CategoryID }}
+                                </td>
+                                <td>
+                                    {{ $add_categories->CategoryName }}
+                                </td>
+                                <td>
+                                    <div class="btn-ation">
+                                        <a href="{{ url('/delete_categories', $add_categories->CategoryID) }}"
+                                            class="delete-btn" onclick="return false;">
+                                            ลบ
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
                     </table>
                 </div>
             @endif
-
         @endsection
     </div>
     @if (session('success'))

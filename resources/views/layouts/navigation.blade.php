@@ -20,6 +20,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
     integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
     crossorigin="anonymous"></script>
+
 </head>
 
 <body>
@@ -49,7 +50,7 @@
                 <li class="dorp"><a href="">หมวดหมู่สินค้า <i class="fas fa-chevron-down"></i></a>
                     <ul class="down">
                         @foreach ($categories as $category)
-                            <li>{{ $category->CategoryName }}</li>
+                            <li><a href="{{url('/category',$category->CategoryID)}}">{{ $category->CategoryName }}</a></li>
                         @endforeach
                     </ul>
                 </li>
@@ -61,8 +62,8 @@
             </ul>
             <div class="search">
                 <ul>
-                    <li><a href="" class="search-icon"><i class="fas fa-search "></i></a></li>
-                    <li><a href=""><i class="far fa-heart"></i></a></li>
+                    <li><a href="{{url('/search')}}" class="search-icon"><i class="fas fa-search "></i></a></li>
+                    {{-- <li><a href=""><i class="far fa-heart"></i></a></li> --}}
                     <div class="sum-cart" id="cart-quantity-display">
                         <!-- Display total_quantity from Session -->
                         <script>
@@ -98,21 +99,20 @@
         <div class="footer-main">
             <div class="card-footer">
                 <h5>ติดตามพัสดุ</h5>
-                <p>แจ้งชำระเงิน</p>
-                <p>ติดต่อเรา </p>
-                <p>ใบกำกับภาษี :</p>
+                {{-- <p>แจ้งชำระเงิน</p> --}}
+                <p><a href="">ติดต่อเรา</a> </p>
+                {{-- <p>ใบกำกับภาษี :</p> --}}
             </div>
             <div class="card-footer">
                 <h5>ติดตามเรา</h5>
-                <p>Facebook</p>
-                <p>LINE</p>
-                <p>TIKTOK</p>
+                <p>Facebook : Nbt Supply </p>
+                {{-- <p>TIKTOK</p> --}}
             </div>
             <div class="card-footer">
                 <h5>ติดต่อเรา</h5>
-                <p>โทร : </p>
-                <p>อีเมล : </p>
-                <p>LINE ID :</p>
+                <p>โทร : 038-337085-6</p>
+                <p>อีเมล : nbtsupply@gmail.com</p>
+                <p>LINE : <a href="">Tawee NBT</a></p>
             </div>
         </div>
         <p class="footer-button"> &copy;NBTSUPPLY สงวนลิขสิทธิ์</p>

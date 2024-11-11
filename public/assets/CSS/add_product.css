@@ -173,3 +173,18 @@
     height: 100%;
     object-fit: cover;
 }
+
+select.select{
+    padding: 10px;
+    border: 0px solid #ccc;
+    outline: 1px solid #ccc;
+    border-radius: 4px;
+
+
+}
+select.select:focus{
+    border: 0px solid #ccc;
+    outline: 1px solid #ccc;
+    border-color: #80bdff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
+}

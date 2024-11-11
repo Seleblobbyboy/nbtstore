@@ -17,7 +17,12 @@ Route::get('/admin', [AdminController::class, "index"])->middleware('admin');
 
 
 Route::get('/admin/success/{id}', [AdminController::class, "success"])->middleware('admin');
+
 Route::get('/admin/confirm/{id}', [AdminController::class, "confirm"])->middleware('admin');
+Route::get('/admin/Currentl/{id}', [AdminController::class, "Currentl"])->middleware('admin');
+Route::get('/admin/delivery/{id}', [AdminController::class, "delivery"])->middleware('admin');
+Route::post('/admin/addtex/{id}', [AdminController::class, "addtex"])->middleware('admin');
+
 Route::get('/admin/notConfirm/{id}', [AdminController::class, "notConfirm"])->middleware('admin');
 Route::post('/save-comment', [AdminController::class, 'saveComment'])->name('save-comment');
 
@@ -35,6 +40,9 @@ Route::post('/add_categories', [AdminController::class, "add_categories"])->midd
 
 
 Route::get('/', [HomepageController::class, "index"]);
+Route::get('/category/{id}', [HomepageController::class, "category"]);
+Route::get('/search', [HomepageController::class, "search"]);
+Route::post('/search/product', [HomepageController::class, "search_product"]);
 
 
 Route::get('/product/{id}', [productController::class, "index"]);
@@ -68,9 +76,10 @@ Route::post('/orders/editloadSlip/{order}', [CartController::class, 'editloadSli
 
 Route::get('/profile', [UserController::class, 'User'])->middleware('users');
 Route::get('/profile/order', [UserController::class, 'order'])->middleware('users');
+Route::get('/profile/adress', [UserController::class, 'adress'])->middleware('users');
 
 
-Route::get('/profile/check/{id}', [UserController::class, 'success'])->middleware('users')->name('profile.check');
+Route::get('/profile/check/{id}', [UserController::class, 'success'])->middleware('checkconfirm')->name('profile.check');
 
 
 

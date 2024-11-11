@@ -35,3 +35,33 @@ a.crad:hover{
 .p{
 margin: 10px;
 }
+h3.p{
+    margin: 20px 0;
+    color: #2f2f2f;
+}
+.search {
+    display: flex;
+    justify-content: end;
+
+}
+.search form{
+    display: flex;
+    width: 100%;
+}
+.search input{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    font-size: 14px;
+    margin-right: 10px;
+}
+.search input[type="submit"]{
+    width: 20%;
+}
+.search input:focus{
+    outline: none;
+    border-color: #80bdff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
+}

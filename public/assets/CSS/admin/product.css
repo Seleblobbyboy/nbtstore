@@ -38,29 +38,14 @@ a.add-Categories:hover{
 
 }
 .table-product table{
-    display: flex;
-    width: 1200px;
-    border-collapse: collapse;
-    justify-content: center;
-}
-.table-product tr,th,td{
     text-align: center;
-    padding: 10px;
-    border: 1px solid #ccc ;
-    width: 100px;
-    background-color: #f4f4f4;
+    vertical-align: middle;
+}
 
-}
-th.name-product{
-    width: 400px;
-}
-th.Category{
-    width: 200px;
-}
 .edit-btn{
     display: flex;
     background-color: #ffc404;
-    padding: 10px;
+    padding: 5px;
     color: white;
     text-decoration: none;
     width: 100px;
@@ -72,7 +57,7 @@ th.Category{
 .delete-btn{
     display: flex;
     background-color: #ff0000;
-    padding: 10px;
+    padding: 5px;
     color: white;
     text-decoration: none;
     width: 100px;
@@ -86,7 +71,18 @@ th.Category{
 
 .btn-ation{
     display: flex;
+    justify-content: center;
 }
 .group{
     display: flex;
+}
+.table-product2{
+    display: flex;
+    justify-content: center;
+    width: 70%;
+    margin: 0 auto;
+
+}
+.table-product2 table{
+    text-align: center;
 }

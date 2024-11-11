@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="{{ url('assets/CSS/product.css') }}">
     <link rel="stylesheet" href="{{ url('assets/CSS/product/cart.css') }}">
     <link rel="stylesheet" href="{{ url('assets/CSS/product/shopping.css') }}">
+    <link rel="icon" href="{{ asset('assets/img/logo.png') }}" type="image/png">
 
     <style>
         /* ซ่อนส่วนของฟอร์มใบกำกับภาษีในตอนเริ่มต้น */

@@ -82,9 +82,7 @@ class CustomerController extends Controller
         if ($address == $id) {
             Session::forget('address');
         }
-
-
-        return redirect('/cart/shopping')->with('success', 'ลบข้อมูลเรียบร้อยแล้ว');
+        return redirect()->back()->with('success', 'ลบข้อมูลเรียบร้อยแล้ว');
     }
 
     function SelectAddress($id)

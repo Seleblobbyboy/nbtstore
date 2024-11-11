@@ -19,9 +19,92 @@
 
             <div class="head-confirm">
                 <a href="{{ url('/admin/notConfirm', $Orders->OrderID) }}" class="btn-no">การชำระเงินไม่ถูกต้อง</a>
-                <a href="{{ url('/admin/confirm', $Orders->OrderID) }}" class="btn-suc">ยืนยันการชำระเงิน</a>
+                @if ($Orders->confirm == 1)
+                    <a href="{{ url('/admin/Currentl', $Orders->OrderID) }}" class="btn-suc">ยืนยันการเตรียมจัดส่ง</a>
+                @elseif ($Orders->confirm == 6)
+                    <a href="{{ url('/admin/delivery', $Orders->OrderID) }}" class="btn-suc">ยืนยันการจัดส่งสินค้า</a>
+                @elseif ($Orders->confirm == 7)
+                    <a href="{{ url('/admin/delivery', $Orders->OrderID) }}" class="btn-suc">สินค้าถึงมือลูกค้าแล้ว</a>
+                @else
+                    <a href="{{ url('/admin/confirm', $Orders->OrderID) }}" class="btn-suc">ยืนยันการชำระเงิน</a>
+                @endif
             </div>
+
             @if ($Orders->confirm == 1)
+                <div class="head-Condition">
+                    <div class="group">
+                        <div class="pass">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <a href="{{ url('/profile/check', $Orders->OrderID) }}" class="active">ยืนยันการชำระเงิน</a>
+                    </div>
+                    <div class="line"></div>
+                    <div class="group">
+                        <div class="pass">
+                            <i class="fas fa-truck"></i>
+                        </div>
+                        <a href="{{ url('/profile/check', $Orders->OrderID) }}" class="active">เตรียมจัดส่ง</a>
+                    </div>
+                    <div class="line"></div>
+                    <div class="group">
+                        <div class="select-no">
+                            <i class="fas fa-shipping-fast"></i>
+                        </div>
+
+                        <a href="{{ url('/profile/check', $Orders->OrderID) }}" class="active">จัดส่งสินค้า</a>
+                    </div>
+                </div>
+            @elseif ($Orders->confirm == 6)
+                <div class="head-Condition">
+                    <div class="group">
+                        <div class="pass">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <a href="{{ url('/profile/check', $Orders->OrderID) }}" class="active">ยืนยันการชำระเงิน</a>
+                    </div>
+                    <div class="line"></div>
+                    <div class="group">
+                        <div class="pass">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <a href="{{ url('/profile/check', $Orders->OrderID) }}" class="active">เตรียมจัดส่ง</a>
+                    </div>
+                    <div class="line"></div>
+                    <div class="group">
+
+                        <div class="pass">
+                            <i class="fas fa-shipping-fast"></i>
+                        </div>
+
+                        <a href="{{ url('/profile/check', $Orders->OrderID) }}" class="active">จัดส่งสินค้า</a>
+                    </div>
+                </div>
+            @elseif ($Orders->confirm == 7)
+            <div class="head-Condition">
+                <div class="group">
+                    <div class="pass">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <a href="{{ url('/profile/check', $Orders->OrderID) }}" class="active">ยืนยันการชำระเงิน</a>
+                </div>
+                <div class="line"></div>
+                <div class="group">
+                    <div class="pass">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <a href="{{ url('/profile/check', $Orders->OrderID) }}" class="active">เตรียมจัดส่ง</a>
+                </div>
+                <div class="line"></div>
+                <div class="group">
+
+                    <div class="pass">
+                        <i class="fas fa-check"></i>
+                    </div>
+
+                    <a href="{{ url('/profile/check', $Orders->OrderID) }}" class="active">จัดส่งสินค้า</a>
+                </div>
+            </div>
+            @else
                 <div class="head-Condition">
                     <div class="group">
                         <div class="pass">
@@ -52,13 +135,32 @@
                 <div class="card-width">
                     <div class="head-h1">
                         @if ($Orders->confirm == 1)
-                        <h1 class="text-success">ยืนยันการชำระเงินสำเร็จ</h1>
+                            <h1>เตรียมจัดส่ง</h1>
+                            <h4>พนักงานโปรดจัดเตรียมสินค้าตามจำนวนก่อนกดยืนยัน</h4>
+                        @elseif ($Orders->confirm == 6)
+                            <h1>จัดส่งสินค้า</h1>
+                            <form action="{{ url('/admin/addtex', $Orders->OrderID) }}" method="POST">
+                                @csrf
+                                <input type="text" name="texid" placeholder="เพิ่ม Tex ID">
+                                <input type="submit" value="ยืนยัน">
+                            </form>
+                        @elseif ($Orders->confirm == 7)
+                        <h1 class="text text-success">จัดส่งสินค้าสำเร็จ</h1>
+                        <form action="{{ url('/admin/addtex', $Orders->OrderID) }}" method="POST">
+                            @csrf
+                            <input type="text" name="texid" placeholder="เปลี่ยน Tex ID">
+                            <input type="submit" value="ยืนยัน">
+                        </form>
                         @else
-                        <h1>คำสั่งซื้อสินค้า</h1>
+                            <h1>คำสั่งซื้อสินค้า</h1>
                         @endif
-
                         <div class="head-p">
-                            <p>หมายเลขสั่งซื้อ : {{ $Orders->OrderID }}</p>
+                            @if ($Orders->taxid != null)
+                                <p>Tex ID : {{ $Orders->taxid }}</p>
+                                <p>หมายเลขสั่งซื้อ : {{ $Orders->OrderID }}</p>
+                            @else
+                                <p>หมายเลขสั่งซื้อ : {{ $Orders->OrderID }}</p>
+                            @endif
                             <p>วันที่สั่งซื้อ :
                                 {{ \Carbon\Carbon::parse($Orders->OrderDate)->locale('th')->isoFormat('D MMMM YYYY เวลา HH:mm') }}
                             </p>
@@ -136,50 +238,34 @@
                                 </div>
                                 <div class="details-totle">
                                     <p>${{ number_format($totalProductAmount, 2) }}</p>
-                                    <p>${{ number_format(9.35, 2) }}</p>
-                                    <p>${{ number_format(0.65, 2) }}</p>
+                                    <p>${{ number_format($totalWithVat, 2) }}</p>
+                                    <p>${{ number_format($vat, 2) }}</p>
                                 </div>
                             </div>
                             <div class="summary-t1">
                                 <div class="details">
-                                    <p>ยอกรวมสินค้า</p>
+                                    <p>ยอดรวมสินค้า</p>
                                     <p>ค่าจัดส่งสินค้า</p>
                                 </div>
                                 <div class="details-totle">
-                                    <p>${{ number_format($totalProductAmount, 2) }}</p>
+                                    <p>${{ number_format($totalWithVat, 2) }}</p>
                                     <p>${{ number_format(65, 2) }}</p> <!-- ค่าจัดส่งสินค้า -->
                                 </div>
                             </div>
                             <div class="everything">
                                 <p>ยอดรวมสุทธิ</p>
-                                <p>${{ number_format($totalProductAmount + 65, 2) }}</p> <!-- ยอดรวมสุทธิ -->
+                                <p>${{ number_format($Orders->TotalAmount,2) }}</p> <!-- ยอดรวมสุทธิ -->
                             </div>
-                            {{-- <div class="Confirm-payment">
-                                <form action="{{ route('orders.uploadSlip', $Orders->OrderID) }}" method="POST"
-                                    enctype="multipart/form-data">
-                                    @csrf
-                                    <!-- ใช้ input หนึ่งตัวสำหรับการเลือกและแสดงตัวอย่างรูป -->
-                                    <input type="file" id="file-upload" name="slip_image" accept="image/*"
-                                        onchange="previewImage(event)" style="display:none;">
 
-                                    <!-- ปุ่มสำหรับเลือกไฟล์ โดยคลิกที่ label นี้จะไปเปิด input file -->
-
-                                    <input type="submit" value="ยืนยันการชำระเงิน">
-                                </form>
-
-                            </div> --}}
 
                         </div>
                         <div class="summary-t2">
 
                             <div class="status">
-                                @if ($Orders->confirm == 1)
+                                @if ($Orders->confirm == 1 || $Orders->confirm == 6 || $Orders->confirm == 7)
                                     <h5> สถานะการชำระเงิน : <span class="text-success">ชำระเงินสำเร็จ</span></h5>
                                 @elseif ($Orders->confirm == 2)
                                     <h5> สถานะการชำระเงิน : <span class="text-danger">ชำระเงินไม่สำเร็จ</span></h5>
-                                    <p>{{ $Orders->Comment }}</p>
-                                @elseif ($Orders->confirm == 3)
-                                    <h5> สถานะการชำระเงิน : <span class="text-warning">แก้ไขการชำระเงินแล้ว</span></h5>
                                     <p>{{ $Orders->Comment }}</p>
                                 @elseif ($Orders->SlipImage)
                                     <h5> สถานะการชำระเงิน : <span class="text-warning">รอการตรวจสอบ</span></h5>
@@ -187,7 +273,6 @@
                                 @else
                                     <h5> สถานะการชำระเงิน : <span>รอการชำระเงิน</span></h5>
                                 @endif
-
                             </div>
                             <div class="accordion accordion-flush" id="accordionFlush">
                                 <div class="accordion-item bg-dark2 mb-3">
@@ -206,7 +291,8 @@
                                             </div>
                                             <div class="prompay">
                                                 <div class="prom-img">
-                                                    <img src="{{ url('assets/img/prompt-pay-logo.png') }}" alt="">
+                                                    <img src="{{ url('assets/img/prompt-pay-logo.png') }}"
+                                                        alt="">
                                                 </div>
                                                 <img id="promptpay-qr-code" src="" style="width: 40%;"
                                                     alt="QR Code สำหรับ PromptPay">

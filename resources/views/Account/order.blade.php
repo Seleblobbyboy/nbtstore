@@ -23,6 +23,8 @@
                     <option value="3" {{ request('select') == '3' ? 'selected' : '' }}>แก้ไขการชำระเงินแล้ว</option>
                     <option value="4" {{ request('select') == '4' ? 'selected' : '' }}>ยังไม่ได้ชำระเงิน</option>
                     <option value="5" {{ request('select') == '5' ? 'selected' : '' }}>รอตรวจสอบ</option>
+                    <option value="6" {{ request('select') == '6' ? 'selected' : '' }}>เตรียมจัดส่ง</option>
+                    <option value="7" {{ request('select') == '7' ? 'selected' : '' }}>จัดส่งสินค้า</option>
                 </select>
                 <button type="submit"><i class="fas fa-search"></i></button>
             </form>
@@ -72,6 +74,11 @@
                                         <td>
                                             @if ($order->confirm == 1)
                                                 <span class="text-success">ชำระเงินสำเร็จ</span>
+                                            @elseif ($order->confirm == 6)
+                                            <span class="text-success">เตรียมจัดส่ง
+                                            </span>
+                                            @elseif ($order->confirm == 7)
+                                            <span class="text-success">จัดส่งสินค้า</span>
                                             @elseif ($order->confirm == 2)
                                                 <span class="text-danger">ชำระเงินไม่สำเร็จ</span>
                                             @elseif ($order->confirm == 3)
@@ -85,7 +92,15 @@
                                         <td>
                                             @if ($order->confirm == 1)
                                                 <a href="{{ url('/profile/check', $order->OrderID) }}"
-                                                    class="btn btn-success text-white"><i class="fas fa-shopping-basket"></i></a>
+                                                    class="btn btn-success text-white"><i
+                                                        class="fas fa-shopping-basket"></i></a>
+                                            @elseif ($order->confirm == 6)
+                                                <a href="{{ url('/profile/check', $order->OrderID) }}"
+                                                    class="btn btn-success text-white"><i class="fas fa-truck"></i></a>
+                                            @elseif ($order->confirm == 7)
+                                                <a href="{{ url('/profile/check', $order->OrderID) }}"
+                                                    class="btn btn-success text-white">                                <i class="fas fa-shipping-fast"></i>
+                                                </i></a>
                                             @else
                                                 <a href="{{ url('/cart/success', $order->OrderID) }}"
                                                     class="btn btn-warning text-white"><i class="fas fa-bars"></i></a>

@@ -20,6 +20,10 @@
                 <div class="head-add">
                     <h1><i class="fas fa-shopping-basket"></i> Add New Product</h1>
                     <div class="add">
+                        <select name="showindex" id="" class="select">
+                            <option value="1">แสดงหน้าแรก</option>
+                            <option value="2">ทั่วไป</option>
+                        </select>
                         <input type="submit" value="Add Product">
                     </div>
                 </div>

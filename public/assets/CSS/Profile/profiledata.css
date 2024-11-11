@@ -34,3 +34,8 @@ table.table{
     width: 50px;
     height: 38px;
 }
+
+.card-method2{
+    display: flex;
+    border: 1px solid ;
+}

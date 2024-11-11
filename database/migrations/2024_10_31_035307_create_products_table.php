@@ -19,6 +19,7 @@ return new class extends Migration
             $table->decimal('stock', 10, 2);
             $table->text('Description')->nullable();
             $table->unsignedBigInteger('CategoryID'); // ต้องตรงกัน
+            $table->integer('showproduct')->nullable(); // สามารถเป็นเลขใดก็ได้ และเป็นค่าว่างได้
             $table->softDeletes();
             $table->timestamps();
             $table->foreign('CategoryID')->references('CategoryID')->on('categories')->onDelete('cascade');

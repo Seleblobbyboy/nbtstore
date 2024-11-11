@@ -81,7 +81,16 @@ class AdminController extends Controller
             return $detail->Products->Price * $detail->Quantity;
         });
 
-        return view('admin.success', compact('cart', 'Orders', 'Customers', 'Invoice', 'OrderDetails', 'totalProductAmount'));
+        // คำนวณ VAT 7%
+        $vat = $totalProductAmount * 0.07;
+
+        // ยอดรวมรวม VAT
+        $totalWithVat = $totalProductAmount + $vat;
+
+
+        // dd($sum);
+
+        return view('admin.success', compact('cart', 'Orders', 'Customers', 'Invoice', 'OrderDetails', 'totalProductAmount', 'totalWithVat', 'vat'));
     }
     public function confirm($id)
     {
@@ -89,7 +98,30 @@ class AdminController extends Controller
         $Orders = Orders::find($id);
         $Orders->confirm = 1;
         $Orders->save();
-        return redirect('/admin/success/'. $id)->with('success', 'ยืนยันการชำระเงินแล้ว');
+        return redirect('/admin/success/' . $id)->with('success', 'ยืนยันการชำระเงินแล้ว');
+    }
+    public function Currentl($id)
+    {
+
+        $Orders = Orders::find($id);
+        $Orders->confirm = 6;
+        $Orders->save();
+        return redirect('/admin/success/' . $id)->with('success', 'ยืนยันการเตรียมจัดส่งสำเร็จ');
+    }
+    public function delivery($id)
+    {
+
+        $Orders = Orders::find($id);
+        $Orders->confirm = 7;
+        $Orders->save();
+        return redirect('/admin/success/' . $id)->with('success', 'ยืนยันการจัดส่งกับไปรษณีย์ไทยสำเร็จ');
+    }
+    public function addtex(Request $request, $id)
+    {
+        $Orders = Orders::find($id);
+        $Orders->taxid = $request->texid;
+        $Orders->save();
+        return redirect('/admin/success/' . $id)->with('success', 'เพิ่มหมายเลข Tex ID สำเร็จ');
     }
     public function notConfirm($id)
     {
@@ -98,7 +130,7 @@ class AdminController extends Controller
         $Orders->confirm = 2;
         $Orders->Comment = "โปรดชำระเงินใหม่";
         $Orders->save();
-        return redirect('/admin/success/' . $id)->with('success', 'ยกเลิกการยืนยันสินค้าแล้ว');
+        return redirect('/admin/success/' . $id)->with('notConfirm', 'ยกเลิกการยืนยันสินค้าแล้ว');
     }
     public function saveComment(Request $request)
     {
@@ -137,6 +169,7 @@ class AdminController extends Controller
         $product->stock = $request->stock;
         $product->Description = $request->Description;
         $product->CategoryID = $request->CategoryName;
+        $product->showproduct = $request->showindex;
         $product->save();
 
         // บันทึกภาพหลัก
@@ -190,6 +223,8 @@ class AdminController extends Controller
         $product->stock = $request->stock;
         $product->Description = $request->Description;
         $product->CategoryID = $request->CategoryName;
+        $product->showproduct = $request->showindex;
+
         $product->save();
 
         // อัพเดตภาพหลัก

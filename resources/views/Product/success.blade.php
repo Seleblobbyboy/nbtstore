@@ -136,8 +136,8 @@
                                 </div>
                                 <div class="details-totle">
                                     <p>${{ number_format($totalProductAmount, 2) }}</p>
-                                    <p>${{ number_format(9.35, 2) }}</p>
-                                    <p>${{ number_format(0.65, 2) }}</p>
+                                    <p>${{ number_format($totalWithVat, 2) }}</p>
+                                    <p>${{ number_format($vat, 2) }}</p>
                                 </div>
                             </div>
                             <div class="summary-t1">
@@ -146,13 +146,13 @@
                                     <p>ค่าจัดส่งสินค้า</p>
                                 </div>
                                 <div class="details-totle">
-                                    <p>${{ number_format($totalProductAmount, 2) }}</p>
+                                    <p>${{ number_format($totalWithVat, 2) }}</p>
                                     <p>${{ number_format(65, 2) }}</p> <!-- ค่าจัดส่งสินค้า -->
                                 </div>
                             </div>
                             <div class="everything">
                                 <p>ยอดรวมสุทธิ</p>
-                                <p>${{ number_format($totalProductAmount + 65, 2) }}</p> <!-- ยอดรวมสุทธิ -->
+                                <p>${{ number_format($Orders->TotalAmount,2) }}</p> <!-- ยอดรวมสุทธิ -->
                             </div>
                             <div class="Confirm-payment">
                                 @if ($Orders->confirm == 2)
@@ -188,9 +188,9 @@
                         <div class="summary-t2">
 
                             <div class="status">
-                                @if ($Orders->confirm == 1)
+                                @if ($Orders->confirm == 1 || $Orders->confirm == 6 || $Orders->confirm == 7)
                                     <h5> สถานะการชำระเงิน : <span class="text-success">ชำระเงินสำเร็จ</span></h5>
-                                    <p>สามารถติดตามสถานะการจัดส่งได้ที่หน้า <a href="">รายการสินค้าที่สั่งซื้อ</a></p>
+                                    <p>สามารถติดตามสถานะการจัดส่งได้ที่หน้า <a href="{{url('/profile/check',$Orders->OrderID)}}">รายการสินค้าที่สั่งซื้อ</a></p>
                                 @elseif ($Orders->confirm == 2)
                                     <h5> สถานะการชำระเงิน : <span class="text-danger">ชำระเงินไม่สำเร็จ</span></h5>
                                     <p>{{ $Orders->Comment }}</p>
@@ -226,7 +226,7 @@
                                             </div>
                                             <div class="name-pay">
                                                 <small>สแกน QR เพื่อ โอนเงินเข้าบัญชี</small>
-                                                <h3>บริษัท NBT SUPPLY</h3>
+                                                <h3>น.ส วรรณา สุขเกษม</h3>
                                             </div>
                                         </div>
                                     </div>
@@ -368,10 +368,10 @@
         }
     </script>
     <script>
-        const promptPayPhone = "0652763408"; // หมายเลข PromptPay ที่คุณต้องการ
-        let productTotal = {{ $Orders->TotalAmount }};
-        let shippingCost = 0; // ค่าจัดส่ง
-        let totalAmount = (productTotal + shippingCost).toFixed(2); // จำกัดทศนิยมสองตำแหน่ง
+        const promptPayPhone = "3210500198155"; // หมายเลข PromptPay ที่คุณต้องการ
+        let productTotal = 0;
+        let shippingCost = 0;
+        let totalAmount = ({{$Orders->TotalAmount}}).toFixed(2); // จำกัดทศนิยมสองตำแหน่ง
 
         // ฟังก์ชันอัปเดต QR Code ของ PromptPay
         function updatePromptPayQRCode() {

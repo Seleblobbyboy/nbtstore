@@ -35,3 +35,21 @@ a.btn-suc{
     color: white;
     border-radius: 5px;
 }
+
+.head-h1 input{
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 14px;
+    margin: 10px 0;
+}
+.head-h1  input[type="submit"]{
+    margin-left: 10px;
+    background-color: #007bff;
+    color: white;
+}
+.head-h1 input:focus{
+    outline: none;
+    border-color: #80bdff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
+}
