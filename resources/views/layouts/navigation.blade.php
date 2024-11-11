@@ -63,7 +63,7 @@
             <div class="search">
                 <ul>
                     <li><a href="{{url('/search')}}" class="search-icon"><i class="fas fa-search "></i></a></li>
-                    {{-- <li><a href=""><i class="far fa-heart"></i></a></li> --}}
+                    <li><a href=""><i class="far fa-heart"></i></a></li>
                     <div class="sum-cart" id="cart-quantity-display">
                         <!-- Display total_quantity from Session -->
                         <script>
